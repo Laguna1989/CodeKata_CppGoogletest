@@ -5,6 +5,6 @@ using namespace ::testing;
 
 TEST(MarsRoverAcceptanceTest, bossmonster)
 {
-	ASSERT_EQ(answer(), 100);
+	ASSERT_EQ(answer(), 42);
 }
 
