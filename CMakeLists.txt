@@ -1,6 +1,5 @@
 cmake_minimum_required (VERSION 3.10)
-set (PROJECTNAME "CodeKata") 
-project (${PROJECTNAME})
+project ("Code Kata")
 
 set (CXX_STANDARD_REQUIRED ON)
 set (CMAKE_CXX_STANDARD 17)
@@ -17,16 +16,16 @@ target_include_directories(Library PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 
 # Download and unpack googletest at configure time
-configure_file(ext/googletest/CMakeLists.txt.in ${CMAKE_CURRENT_SOURCE_DIR}/ext/googletest/googletest-download/CMakeLists.txt)
+configure_file(ext/googletest/CMakeLists.txt.in ${CMAKE_CURRENT_BINARY_DIR}/ext/googletest/googletest-download/CMakeLists.txt)
 execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
 RESULT_VARIABLE result
-WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/ext/googletest/googletest-download )
+WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/ext/googletest/googletest-download )
 if(result)
 	message(FATAL_ERROR "CMake step for googletest failed: ${result}")
 endif()
 execute_process(COMMAND ${CMAKE_COMMAND} --build .
 RESULT_VARIABLE result
-WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/ext/googletest/googletest-download )
+WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/ext/googletest/googletest-download )
 if(result)
 	message(FATAL_ERROR "Build step for googletest failed: ${result}")
 endif()
@@ -37,8 +36,8 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
 # Add googletest directly to our build. This defines
 # the gtest and gtest_main targets.
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/ext/googletest/googletest-src
-				 ${CMAKE_CURRENT_SOURCE_DIR}/ext/googletest/googletest-build
+add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/ext/googletest/googletest-src
+				 ${CMAKE_CURRENT_BINARY_DIR}/ext/googletest/googletest-build
 				 EXCLUDE_FROM_ALL)
 
 # The gtest/gtest_main targets carry header search path
