@@ -3,7 +3,7 @@
 
 using namespace ::testing;
 
-TEST(MarsRoverAcceptanceTest, bossmonster)
+TEST(ImplementationTest, IsThisWorking)
 {
 	ASSERT_EQ(answer(), 42);
 }
