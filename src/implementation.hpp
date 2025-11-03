@@ -1,6 +1,3 @@
-#ifndef IMPLEMENTATION_HPP_GUARD
-#define IMPLEMENTATION_HPP_GUARD
+#pragma once
 
 int answer();
-
-#endif
