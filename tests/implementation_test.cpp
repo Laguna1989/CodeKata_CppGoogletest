@@ -4,5 +4,5 @@
 TEST_CASE("Implementation Test")
 {
 
-    SECTION("Is this working?") { REQUIRE(answer() == 45); }
+    SECTION("Is this working?") { REQUIRE(answer() == 42); }
 }
