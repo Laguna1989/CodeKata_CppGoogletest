@@ -1,10 +1,8 @@
 #include "implementation.hpp"
-#include <gtest/gtest.h>
+#include <catch2/catch_all.hpp>
 
-using namespace ::testing;
-
-TEST(ImplementationTest, IsThisWorking)
+TEST_CASE("Implementation Test")
 {
-	ASSERT_EQ(answer(), 42);
-}
 
+    SECTION("Is this working?") { REQUIRE(answer() == 45); }
+}
